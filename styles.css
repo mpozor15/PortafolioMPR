@@ -1,0 +1,238 @@
+/*
+========================================
+  1. DEFINICIÓN DE VARIABLES (CRITERIO 3)
+========================================
+*/
+:root {
+  /* Paleta de Colores */
+  --color-primary: #30391F;
+  --color-secondary: #668A4C;
+  --color-accent: #ACCC7B;
+  --color-dark: #464646;
+  --color-light: #E9E2E2;
+  --color-background: #FDFDFD; /* Blanco de fondo (estimado) */
+
+  /* Tipografía */
+  --font-primary: 'Judson', sans-serif;
+
+  /* Tamaños de Fuente */
+  --font-size-h1: 32px;
+  --font-size-h2: 24px;
+  --font-size-p: 16px;
+  --font-size-label: 12px;
+
+  /* Pesos de Fuente */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}
+
+/*
+========================================
+  2. ESTILOS GLOBALES
+========================================
+*/
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-p);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-dark);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/*
+========================================
+  3. COMPONENTE: BARRA DE NAVEGACIÓN
+========================================
+*/
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: var(--color-primary);
+  transition: padding 0.3s ease;
+  position: relative; 
+  z-index: 10;
+}
+
+/* El logo y los iconos no se encogen */
+.navbar-logo, .navbar-icons {
+  flex-shrink: 0;
+}
+
+/* --- CAMBIO: Regla .navbar-logo modificada --- */
+.navbar-logo {
+  text-decoration: none;
+  /* Centra la imagen verticalmente si tiene espacio extra */
+  display: flex; 
+  align-items: center;
+  /* Ya no necesita font-size, color, etc. */
+}
+
+/* --- NUEVA REGLA: Para la imagen del logo --- */
+.logo-image {
+  height: 36px; /* Ajusta esta altura como veas mejor */
+  width: auto; /* Mantiene la proporción */
+  /* El filtro 'invert' cambia el negro de la imagen a blanco */
+  filter: invert(100%); 
+}
+
+/* --- Barra de Búsqueda (Animada GLOBALMENTE) --- */
+.search-bar-desktop {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-light);
+  border-radius: 50px;
+  
+  /* Estado inicial: oculta */
+  width: 0;
+  opacity: 0;
+  padding: 8px 0;
+  margin: 0;
+  overflow: hidden; 
+  pointer-events: none;
+  
+  transition: width 0.35s ease, opacity 0.35s ease, padding 0.35s ease, margin 0.35s ease;
+}
+
+/* Estado activo: la barra se expande */
+.navbar.search-active .search-bar-desktop {
+  width: 100%; 
+  opacity: 1;
+  padding: 8px 15px;
+  margin: 0 15px; 
+  pointer-events: auto;
+}
+
+.search-bar-desktop i {
+  color: var(--color-dark);
+  margin-right: 8px;
+  font-size: var(--font-size-label);
+}
+
+.search-bar-desktop input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-label); 
+  color: var(--color-dark);
+  width: 100%;
+}
+
+.search-bar-desktop input::placeholder {
+  color: var(--color-dark);
+  opacity: 0.6;
+}
+
+/* --- Iconos de la derecha --- */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  z-index: 12; 
+}
+
+.navbar-icons i {
+  color: var(--color-light);
+  font-size: var(--font-size-h2);
+}
+
+.user-icon {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Icono de Lupa ahora GLOBALMENTE visible */
+.search-icon-mobile {
+  display: block; 
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+/*
+========================================
+  4. SECCIÓN: CONTENIDO PRINCIPAL
+========================================
+*/
+.main-content {
+  padding: 30px 40px; 
+  background-color: var(--color-light);
+}
+
+.main-title {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-h1);
+  color: var(--color-dark);
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/*
+========================================
+  5. COMPONENTE: CUADRÍCULA PORTAFOLIO
+========================================
+*/
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.project-card {
+  aspect-ratio: 1 / 1; 
+  background-color: var(--color-secondary);
+  border-radius: 8px; 
+  text-decoration: none;
+  display: block;
+}
+
+/*
+========================================
+  6. DISEÑO RESPONSIVE (CRITERIO 2)
+========================================
+*/
+@media (max-width: 768px) {
+  
+  /* --- Ajustes del Navbar --- */
+  .navbar {
+    padding: 15px 20px;
+  }
+  
+  /* --- Ajustes de la Cuadrícula --- */
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  /* --- Ajustes del Contenido Principal --- */
+  .main-content {
+    padding: 20px;
+  }
+
+  /* Reducimos un poco el logo en móvil */
+  .logo-image {
+      height: 30px;
+  }
+}

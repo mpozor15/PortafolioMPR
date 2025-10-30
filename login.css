@@ -1,0 +1,128 @@
+/*
+  login.css
+  Estilos específicos para la página de inicio de sesión.
+*/
+
+/* 1. Estilo del Body
+   Centraremos el formulario en la pantalla
+*/
+.body-login {
+  /* Usamos el color primario oscuro como fondo de la página */
+  background-color: var(--color-primary);
+  
+  /* Centrado perfecto (vertical y horizontal) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 2. Contenedor del Formulario
+   La tarjeta clara que contiene todo.
+*/
+.login-container {
+  background-color: var(--color-light); /* Fondo claro */
+  padding: 30px;
+  border-radius: 16px; /* Borde redondeado como en el prototipo */
+  width: 100%;
+  max-width: 360px; /* Ancho máximo para el formulario */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h2 {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-h2); /* 24px */
+  color: var(--color-dark);
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+/* 3. Campos de Input (Usuario y Contraseña) */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-label); /* 12px */
+  color: var(--color-dark);
+  text-transform: lowercase;
+  opacity: 0.8;
+}
+
+.input-group input {
+  /* Reseteo de estilos */
+  border: none;
+  background: transparent;
+  outline: none;
+  
+  /* Estilo de línea inferior */
+  border-bottom: 1px solid var(--color-dark);
+  
+  /* Estilos de fuente y tamaño */
+  width: 100%;
+  padding: 5px 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-p); /* 16px */
+  color: var(--color-dark);
+}
+
+/* 4. Botón (basado en la guía de estilos) */
+.btn {
+  /* Estilos base del botón */
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-p); /* 16px */
+  color: var(--color-light); /* Texto claro */
+  background-color: var(--color-primary); /* Fondo oscuro */
+  
+  /* Forma y tamaño */
+  border: none;
+  border-radius: 50px; /* Píldora */
+  padding: 12px 20px;
+  width: 100%;
+  cursor: pointer;
+  
+  /* Transición suave para el hover */
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  /* Estado hover (verde secundario) */
+  background-color: var(--color-secondary);
+}
+
+.btn:active {
+  /* Estado click (verde claro/accent) */
+  background-color: var(--color-accent);
+}
+
+/* 5. Enlaces inferiores */
+.login-links {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.login-links .link-forgot {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-label); /* 12px */
+  color: var(--color-dark);
+  text-decoration: underline; /* Subrayado como en el prototipo */
+  display: block;
+  margin-bottom: 15px;
+}
+
+.login-links .link-register {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-label); /* 12px */
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.login-links .link-register a {
+  color: var(--color-dark);
+  font-weight: var(--font-weight-bold);
+  text-decoration: underline;
+}
