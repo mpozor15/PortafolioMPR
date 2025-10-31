@@ -3,36 +3,20 @@
   Estilos específicos para la página de inicio de sesión.
 */
 
-/* 1. Estilo del Body
-   Centraremos el formulario en la pantalla
-*/
-.body-login {
-  /* Usamos el color primario oscuro como fondo de la página */
-  background-color: var(--color-primary);
-  
-  /* Centrado perfecto (vertical y horizontal) */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-/* 2. Contenedor del Formulario
-   La tarjeta clara que contiene todo.
-*/
 .login-container {
-  background-color: var(--color-light); /* Fondo claro */
+  background-color: var(--color-light); 
   padding: 30px;
-  border-radius: 16px; /* Borde redondeado como en el prototipo */
+  border-radius: 16px; 
   width: 100%;
-  max-width: 360px; /* Ancho máximo para el formulario */
+  max-width: 360px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin: 40px auto; 
 }
 
 .login-form h2 {
   font-family: var(--font-primary);
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-h2); /* 24px */
+  font-size: var(--font-size-h2); 
   color: var(--color-dark);
   text-align: center;
   margin-top: 0;
@@ -46,56 +30,51 @@
 
 .input-group label {
   font-family: var(--font-primary);
-  font-size: var(--font-size-label); /* 12px */
+  font-size: var(--font-size-label);
   color: var(--color-dark);
   text-transform: lowercase;
   opacity: 0.8;
 }
 
 .input-group input {
-  /* Reseteo de estilos */
   border: none;
   background: transparent;
   outline: none;
-  
-  /* Estilo de línea inferior */
   border-bottom: 1px solid var(--color-dark);
-  
-  /* Estilos de fuente y tamaño */
   width: 100%;
   padding: 5px 0;
   font-family: var(--font-primary);
-  font-size: var(--font-size-p); /* 16px */
+  font-size: var(--font-size-p);
   color: var(--color-dark);
 }
 
-/* 4. Botón (basado en la guía de estilos) */
+/* 4. Botón (ahora estilizando un <a>) */
 .btn {
-  /* Estilos base del botón */
+  /* ======== CAMBIO: Añadido para que <a> se vea como <button> ======== */
+  display: block;           /* Ocupa el 100% del ancho */
+  text-decoration: none;    /* Quita el subrayado */
+  text-align: center;       /* Centra el texto */
+  box-sizing: border-box;   /* Asegura que el padding no rompa el width */
+  /* =================================================================== */
+  
   font-family: var(--font-primary);
   font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-p); /* 16px */
-  color: var(--color-light); /* Texto claro */
-  background-color: var(--color-primary); /* Fondo oscuro */
-  
-  /* Forma y tamaño */
+  font-size: var(--font-size-p);
+  color: var(--color-light);
+  background-color: var(--color-primary);
   border: none;
-  border-radius: 50px; /* Píldora */
+  border-radius: 50px;
   padding: 12px 20px;
   width: 100%;
   cursor: pointer;
-  
-  /* Transición suave para el hover */
   transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-  /* Estado hover (verde secundario) */
   background-color: var(--color-secondary);
 }
 
 .btn:active {
-  /* Estado click (verde claro/accent) */
   background-color: var(--color-accent);
 }
 
@@ -107,16 +86,16 @@
 
 .login-links .link-forgot {
   font-family: var(--font-primary);
-  font-size: var(--font-size-label); /* 12px */
+  font-size: var(--font-size-label);
   color: var(--color-dark);
-  text-decoration: underline; /* Subrayado como en el prototipo */
+  text-decoration: underline;
   display: block;
   margin-bottom: 15px;
 }
 
 .login-links .link-register {
   font-family: var(--font-primary);
-  font-size: var(--font-size-label); /* 12px */
+  font-size: var(--font-size-label);
   color: var(--color-dark);
   margin: 0;
 }

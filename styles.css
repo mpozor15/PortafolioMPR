@@ -10,7 +10,7 @@
   --color-accent: #ACCC7B;
   --color-dark: #464646;
   --color-light: #E9E2E2;
-  --color-background: #FDFDFD; /* Blanco de fondo (estimado) */
+  --color-background: #FDFDFD;
 
   /* Tipografía */
   --font-primary: 'Judson', sans-serif;
@@ -24,6 +24,9 @@
   /* Pesos de Fuente */
   --font-weight-regular: 400;
   --font-weight-bold: 700;
+  
+  /* Ancho máximo para evitar scroll en portátiles */
+  --max-content-width: 800px;
 }
 
 /*
@@ -40,6 +43,11 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+  /* Sticky Footer */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 h1, h2 {
@@ -47,13 +55,8 @@ h1, h2 {
   font-weight: var(--font-weight-bold);
 }
 
-h1 {
-  font-size: var(--font-size-h1);
-}
-
-h2 {
-  font-size: var(--font-size-h2);
-}
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
 
 *, *::before, *::after {
   box-sizing: inherit;
@@ -65,35 +68,36 @@ h2 {
 ========================================
 */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
   background-color: var(--color-primary);
+  padding: 20px 0; 
   transition: padding 0.3s ease;
   position: relative; 
   z-index: 10;
+  flex-shrink: 0;
 }
 
-/* El logo y los iconos no se encogen */
+.navbar-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .navbar-logo, .navbar-icons {
   flex-shrink: 0;
 }
 
-/* --- CAMBIO: Regla .navbar-logo modificada --- */
 .navbar-logo {
   text-decoration: none;
-  /* Centra la imagen verticalmente si tiene espacio extra */
   display: flex; 
   align-items: center;
-  /* Ya no necesita font-size, color, etc. */
 }
 
-/* --- NUEVA REGLA: Para la imagen del logo --- */
 .logo-image {
-  height: 36px; /* Ajusta esta altura como veas mejor */
-  width: auto; /* Mantiene la proporción */
-  /* El filtro 'invert' cambia el negro de la imagen a blanco */
+  height: 36px;
+  width: auto;
   filter: invert(100%); 
 }
 
@@ -103,19 +107,15 @@ h2 {
   align-items: center;
   background-color: var(--color-light);
   border-radius: 50px;
-  
-  /* Estado inicial: oculta */
   width: 0;
   opacity: 0;
   padding: 8px 0;
   margin: 0;
   overflow: hidden; 
   pointer-events: none;
-  
   transition: width 0.35s ease, opacity 0.35s ease, padding 0.35s ease, margin 0.35s ease;
 }
 
-/* Estado activo: la barra se expande */
 .navbar.search-active .search-bar-desktop {
   width: 100%; 
   opacity: 1;
@@ -126,9 +126,10 @@ h2 {
 
 .search-bar-desktop i {
   color: var(--color-dark);
-  margin-right: 8px;
   font-size: var(--font-size-label);
+  margin-right: 8px;
 }
+
 
 .search-bar-desktop input {
   border: none;
@@ -154,20 +155,15 @@ h2 {
 }
 
 .navbar-icons i {
-  color: var(--color-light);
-  font-size: var(--font-size-h2);
+    color: var(--color-light);
+    font-size: var(--font-size-h2);
 }
-
-.user-icon {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Icono de Lupa ahora GLOBALMENTE visible */
-.search-icon-mobile {
-  display: block; 
-  position: relative;
-  width: 24px;
-  height: 24px;
+.search-icon-mobile, .user-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
 }
 
 /*
@@ -176,8 +172,15 @@ h2 {
 ========================================
 */
 .main-content {
-  padding: 30px 40px; 
+  padding: 30px 0; 
   background-color: var(--color-light);
+  flex-grow: 1; /* Sticky footer */
+}
+
+.main-container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 .main-title {
@@ -206,33 +209,94 @@ h2 {
   border-radius: 8px; 
   text-decoration: none;
   display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    z-index: 1; /* Detrás del texto */
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ======== CAMBIO: Nuevos estilos para la caja de texto ======== */
+
+/* La caja de texto semi-transparente */
+.project-info {
+    position: absolute;
+    bottom: 10px; /* Margen inferior */
+    left: 10px;   /* Margen izquierdo */
+    right: 10px;  /* Margen derecho */
+    
+    /* Usamos el color primario con 80% de opacidad */
+    background-color: rgba(48, 57, 31, 0.8); 
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 2; /* Se asegura de estar sobre la imagen */
+}
+
+/* El texto (título) dentro de la caja */
+.project-info h3 {
+    color: var(--color-light);
+    text-align: center;
+    font-size: var(--font-size-p); /* 16px */
+    font-weight: var(--font-weight-bold);
+    margin: 0; /* Quita el margen por defecto del h3 */
+}
+/* ========================================================== */
+
+
+/*
+========================================
+  6. NUEVO FOOTER
+========================================
+*/
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 30px 0;
+    text-align: center;
+    font-size: var(--font-size-label);
+    flex-shrink: 0; /* Sticky footer */
+}
+.footer-container {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+.footer p {
+    margin: 5px 0;
+    opacity: 0.8;
 }
 
 /*
 ========================================
-  6. DISEÑO RESPONSIVE (CRITERIO 2)
+  7. DISEÑO RESPONSIVE (CRITERIO 2)
 ========================================
 */
 @media (max-width: 768px) {
   
-  /* --- Ajustes del Navbar --- */
-  .navbar {
-    padding: 15px 20px;
-  }
+  .navbar { padding: 15px 0; }
+  .navbar-container { padding: 0 20px; }
   
-  /* --- Ajustes de la Cuadrícula --- */
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
   
-  /* --- Ajustes del Contenido Principal --- */
-  .main-content {
-    padding: 20px;
-  }
+  .main-content { padding: 20px 0; }
+  .main-container { padding: 0 20px; }
 
-  /* Reducimos un poco el logo en móvil */
-  .logo-image {
-      height: 30px;
-  }
+  .logo-image { height: 30px; }
+  
+  .footer-container { padding: 0 20px; }
 }
