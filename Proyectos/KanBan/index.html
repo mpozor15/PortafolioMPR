@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KanBan</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    <div id="contenedor-principal" >
+<div class="titulo" >
+        <h1>KanBan</h1>
+    </div>
+
+    <main id="padre" >
+        <section class="izq" >
+            <!-- Titulo -->
+            <article class="tarjeta-titulo" ><h3>Todo</h3></article>
+
+            <!-- Contenido -->
+            <article class="tarjeta" >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim hic, dignissimos earum rerum unde deserunt nam? Doloremque debitis unde quia praesentium, officiis atque repellendus ea? Porro non ut voluptas vitae!<button type="reset">&times;</button></article>
+            <article class="tarjeta" >Terminar la tarea 3 de cliente. Lorem, ipsum dolor sit amet consectetur adipisicing elit<button type="reset">&times;</button></article>
+            <article class="tarjeta" >Terminar la tarea 2 de diseño<button type="reset">&times;</button></article>
+            <article class="tarjeta" >Terminar la tarea 3 de servidor. Lorem, ipsum dolor sit amet consectetur adipisicing elit<button type="reset">&times;</button></article>
+
+            <!-- Añadir -->
+            <article class="añadir" >
+                <form>
+                    <textarea style="width: 100%;" placeholder="Introduce un título" ></textarea>
+                    <div class="añadir-p" >
+                    <a href="#">Añadir tarjeta</a>
+                    <button type="reset">&times;</button>
+                </div>
+                </form>
+                
+            </article>
+        </section>
+
+        <section class="medio" >
+            <!-- Titulo -->
+            <article class="tarjeta-titulo" ><h3>Doing</h3></article>
+
+            <!-- Contenido -->
+            <article class="tarjeta" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quaerat error quia! Labore <button type="reset">&times;</button></article>
+
+            <!-- Añadir -->
+            <article class="añadir-d" >+ &nbsp; Añade una tarjeta</article>
+        </section>
+
+        <section class="der" >
+            <!-- Titulo -->
+            <article class="tarjeta-titulo" ><h3>Done</h3></article>
+
+            <!-- Añadir -->
+            <article class="añadir-d" >+ &nbsp; Añade una tarjeta</article>
+        </section>
+    </main>
+    </div>
+    
+    
+</body>
+</html>
