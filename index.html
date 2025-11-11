@@ -3,84 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio M.P.R</title>
-    
-    <link rel="stylesheet" href="styles.css">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Judson:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <title>KanBan</title>
+    <link rel="stylesheet" href="css.css">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="navbar-container">
-            
-            <a href="index.html" class="navbar-logo">
-                <img src="img/Logo_MPR.png" alt="Logo M.P.R" class="logo-image">
-            </a>
-    
-            <form class="search-bar-desktop">
-                <i class="fas fa-search"></i>
-                <input type="search" placeholder="Buscar en portafolio">
-            </form>
-    
-            <div class="navbar-icons">
-                <a href="#" class="search-icon-mobile">
-                    <i class="fas fa-search"></i>
-                </a>
-                <a href="login.html" class="user-icon">
-                    <i class="fas fa-user"></i>
-                </a>
-            </div>
-        </div>
-    </header>
+    <div id="contenedor-principal" >
+<div class="titulo" >
+        <h1>KanBan</h1>
+    </div>
 
-    <main class="main-content">
-        <div class="main-container">
-            <h1 class="main-title">Portafolio</h1>
-    
-            <div class="portfolio-grid">
+    <main id="padre" >
+        <section class="izq" >
+            <!-- Titulo -->
+            <article class="tarjeta-titulo" ><h3>Todo</h3></article>
+
+            <!-- Contenido -->
+            <article class="tarjeta" >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim hic, dig  unde deserunt nam? Doloremque debitis unde quia praesentium, officiis atque repellendus ea? Porro non ut voluptas vitae!<button type="reset">&times;</button></article>
+            <article class="tarjeta" >Terminar la tarea 3 de cliente. Lorem, ipsum dolor sit amet consectetur adipisicing elit<button type="reset">&times;</button></article>
+            <article class="tarjeta" >Terminar la tarea 2 de diseño<button type="reset">&times;</button></article>
+            <article class="tarjeta" >Terminar la tarea 3 de servidor. Lorem, ipsum dolor sit amet consectetur adipisicing elit<button type="reset">&times;</button></article>
+
+            <!-- Añadir -->
+            <article class="añadir" >
+                <form>
+                    <textarea style="width: 100%;" placeholder="Introduce un título" ></textarea>
+                    <div class="añadir-p" >
+                    <a href="#">Añadir tarjeta</a>
+                    <button type="reset">&times;</button>
+                </div>
+                </form>
                 
-                <a href="https://www.figma.com/design/dR9etxcmCdDWqJkOh78VND/Guia-de-estilos?node-id=12-2&p=f" class="project-card">
-                    <article>
-                        <img src="img/figma.png">
-                        
-                        <div class="project-info">
-                            <h3>Guía de estilo y prototipo</h3>
-                        </div>
-                    </article>
-                </a>
-                <a href="Proyectos/KanBan/index.html" class="project-card">
-                    <article>
-                        <img src="img/kanban.jpg">
-                        
-                        <div class="project-info">
-                            <h3>Tablero Kanban</h3>
-                        </div>
-                    </article>
-                </a>
-                <a href="#" class="project-card"><article></article></a>
-                <a href="#" class="project-card"><article></article></a>
-                <a href="#" class="project-card"><article></article></a>
-                <a href="#" class="project-card"><article></article></a>
-                <a href="#" class="project-card"><article></article></a>
-                <a href="#" class="project-card"><article></article></a>
-            </div> 
-        </div>
+            </article>
+        </section>
+
+        <section class="medio" >
+            <!-- Titulo -->
+            <article class="tarjeta-titulo" ><h3>Doing</h3></article>
+
+            <!-- Contenido -->
+            <article class="tarjeta" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore quaerat error quia! Labore <button type="reset">&times;</button></article>
+
+            <!-- Añadir -->
+            <article class="añadir-d" >+ &nbsp; Añade una tarjeta</article>
+        </section>
+
+        <section class="der" >
+            <!-- Titulo -->
+            <article class="tarjeta-titulo" ><h3>Done</h3></article>
+
+            <!-- Añadir -->
+            <article class="añadir-d" >+ &nbsp; Añade una tarjeta</article>
+        </section>
     </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <p>&copy; 2025 M.P.R. Todos los derechos reservados.</p>
-            <p>Proyecto de Portafolio - Diseño Web</p>
-        </div>
-    </footer>
-
-    <script src="app.js" defer></script>
-
+    </div>
+    
+    
 </body>
 </html>
