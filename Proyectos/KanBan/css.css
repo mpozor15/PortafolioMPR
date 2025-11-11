@@ -1,3 +1,17 @@
+/*
+============================
+  1. DEFINICIÓN DE root
+============================
+*/
+:root {
+  --color-primary: hsl(271, 42%, 68%);
+  --color-secondary: rgb(251, 251, 251);
+  --color-accent: rgb(19, 60, 75);
+  --color-dark: #464646;
+  --color-light: rgb(228, 224, 224);
+  --color-background: rgb(179, 120, 235);
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -5,7 +19,7 @@
 }
 
 body{
-    background-color: rgb(179, 120, 235);
+    background-color: var(--color-background);
 }
 
 .titulo{
@@ -21,7 +35,7 @@ body{
 
 .izq, .medio, .der{
     width: 25%;
-    background-color: rgb(251, 251, 251);
+    background-color: var(--color-secondary);
     border-radius: 8px;
 }
 
@@ -30,7 +44,7 @@ body{
     padding: 8px;
     padding-left: 20px;
     padding-right: 20px;
-    border: 1px solid black;
+    border: 1px solid var(--color-dark);
     border-radius: 8px;
     min-height: 80px;
     display: flex;
@@ -50,8 +64,12 @@ body{
 
 .tarjeta:hover{
     padding: 8px;
+    transition: background-color, padding 1s;
+    background-color: var(--color-primary);
+}
+
+.tarjeta:not(:hover){
     transition: background-color 1s;
-    background-color: hsl(271, 42%, 68%);
 }
 
 .tarjeta:hover button{
@@ -60,7 +78,7 @@ body{
 }
 
 .tarjeta button:hover{
-    background-color: rgb(228, 224, 224);
+    background-color: var(--color-light);
     border-radius: 8px;
     transition: background-color 1s;
 }
@@ -72,11 +90,11 @@ body{
 .tarjeta-titulo{
     margin: 12px;
     padding: 8px;
-    border: 1px solid black;
+    border: 1px solid var(--color-dark);
     border-radius: 8px;
     display: flex;
     justify-content: center;
-    background-color: hsl(271, 42%, 68%);
+    background-color: var(--color-primary);
 }
 
 .añadir{
@@ -99,9 +117,9 @@ body{
 
 .añadir-p a{
     text-decoration: none;
-    border: 2px solid black;
+    border: 2px solid var(--color-dark);
     border-radius: 8px;
-    color: #fff;
+    color: var(--color-light);
     background-color: blue;
     padding: 8px;
     width: 50%;
@@ -115,7 +133,7 @@ body{
 }
 
 .añadir-p a:active{
-    background-color: rgb(19, 60, 75);
+    background-color: var(--color-accent);
     box-shadow: unset 1px;
 }
 
@@ -128,13 +146,13 @@ body{
     padding-right: 8px;
     padding-left: 8px;
     border: none;
-    background-color: #fff;
+    background-color: transparent;
     font-size: xx-large;
     cursor: pointer;
 }
 
 .añadir-p button:hover{
-    background-color: rgb(228, 224, 224);
+    background-color: var(--color-light);
     border-radius: 8px;
 }
 
@@ -146,8 +164,13 @@ body{
 }
 
 .añadir-d:hover{
-    background-color: rgb(228, 224, 224);
+    transition: background-color 1s;
+    background-color: var(--color-light);
     border-radius: 8px;
+}
+
+.añadir-d:not(:hover){
+    transition: background-color 1s;
 }
 
 @media (max-width: 790px) {
