@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller</title>
+    <link rel="stylesheet" href="css.css">
+    <script defer src="js.js" ></script>
+</head>
+<body>
+
+    <h1 class="titulo" >El Taller De Crafteo Mágico</h1>
+
+    <main class="padre" >
+        <!-- Inventario izq -->
+        <section class="izq" >
+            <h2 class="titulo2" >Inventario</h2>
+
+            <div class="padre-objetos" >
+                <article draggable="true" id="madera" class="objetos"  >Madera</article>
+                <article draggable="true" id="polvora" class="objetos" >Pólvora</article>
+                <article draggable="true" id="hierro" class="objetos" >Hierro</article>
+                <article draggable="true" id="madera2" class="objetos" >Madera</article>
+            </div>
+            
+        </section>
+
+        <!-- Estacion De Trabajo med -->
+        <section class="med" >
+            <h2 class="titulo2" >Estaciones de Trabajo</h2>
+
+            <div class="padre-trabajo" >
+                <div id="forja" class="trabajo" >La Forja </br> <span class="minor" >(Acepta: Metal)</span></div>
+                <div id="carpintero" class="trabajo" >Banco de Carpintero </br> <span class="minor" >(Acepta: Madera)</span></div>
+                <div id="alquimia" class="trabajo" >Mesa de Alquimia </br> <span class="minor" >(Acepta: Pólvora)</span></div>
+            </div>
+        </section>
+        
+        <!-- Almacén der -->
+        <section class="der" >
+            <h2 class="titulo2" >Almacén de Productos</h2>
+
+            <div class="padre-almacen" >
+                <article id="acero" class="almacen" >Lingotes de acero <span id="contador-h" class="contador" >0</span> </article>
+                <article id="flecha" class="almacen" >Flechas <span id="contador-f" class="contador" >0</span></article>
+                <article id="bomba" class="almacen" >Bombas <span id="contador-b" class="contador" >0</span></article>
+            </div>
+
+        </section>
+    </main>
+    
+</body>
+</html>
